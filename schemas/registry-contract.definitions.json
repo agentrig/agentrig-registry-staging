@@ -1,0 +1,196 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://agentrig.ai/schema/registry-contract.definitions.json",
+  "title": "AgentRig Registry Contract Definitions",
+  "$defs": {
+    "registryAlias": {
+      "type": "string",
+      "pattern": "^[a-z0-9](?:[a-z0-9-]*[a-z0-9])?$"
+    },
+    "namespace": {
+      "type": "string",
+      "pattern": "^[a-z0-9](?:[a-z0-9-]*[a-z0-9])?$"
+    },
+    "pluginName": {
+      "type": "string",
+      "pattern": "^[a-z0-9](?:[a-z0-9-]*[a-z0-9])?$"
+    },
+    "pluginId": {
+      "type": "string",
+      "pattern": "^[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\\.[a-z0-9](?:[a-z0-9-]*[a-z0-9])?$"
+    },
+    "artifactKind": {
+      "type": "string",
+      "enum": [
+        "plugin",
+        "skill",
+        "mcp",
+        "hook"
+      ]
+    },
+    "artifactId": {
+      "type": "string",
+      "pattern": "^[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\\.[a-z0-9](?:[a-z0-9-]*[a-z0-9])?$"
+    },
+    "semver": {
+      "type": "string",
+      "pattern": "^(0|[1-9]\\d*)\\.(0|[1-9]\\d*)\\.(0|[1-9]\\d*)(?:-[0-9A-Za-z.-]+)?(?:\\+[0-9A-Za-z.-]+)?$"
+    },
+    "sha256Digest": {
+      "type": "string",
+      "pattern": "^sha256:[a-f0-9]{64}$"
+    },
+    "fullCommitSha": {
+      "type": "string",
+      "pattern": "^[a-f0-9]{40}$"
+    },
+    "relativePluginPath": {
+      "type": "string",
+      "pattern": "^(?!/)(?!.*(?:^|/)\\.\\.?(/|$))(?!.*//).+$"
+    },
+    "trustTier": {
+      "type": "string",
+      "enum": [
+        "official",
+        "reviewed",
+        "listed",
+        "blocked",
+        "yanked"
+      ]
+    },
+    "installabilityState": {
+      "type": "string",
+      "enum": [
+        "installable",
+        "discovery_only",
+        "blocked",
+        "yanked"
+      ]
+    },
+    "reviewStatus": {
+      "type": "string",
+      "enum": [
+        "pending",
+        "approved",
+        "rejected",
+        "blocked",
+        "yanked"
+      ]
+    },
+    "advisorySeverity": {
+      "type": "string",
+      "enum": [
+        "low",
+        "medium",
+        "high",
+        "critical"
+      ]
+    },
+    "advisoryType": {
+      "type": "string",
+      "enum": [
+        "security",
+        "integrity",
+        "policy",
+        "malware",
+        "legal",
+        "deprecation",
+        "other"
+      ]
+    },
+    "advisoryId": {
+      "type": "string",
+      "pattern": "^ADV-\\d{4}-\\d{4}$"
+    },
+    "canonicalVersionPath": {
+      "type": "string",
+      "pattern": "^(plugins|skills|mcps|hooks)/[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/versions/(0|[1-9]\\d*)\\.(0|[1-9]\\d*)\\.(0|[1-9]\\d*)(?:-[0-9A-Za-z.-]+)?(?:\\+[0-9A-Za-z.-]+)?/$"
+    },
+    "canonicalHistoryPath": {
+      "type": "string",
+      "pattern": "^(plugins/[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/plugin\\.json|skills/[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/skill\\.json|mcps/[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/mcp\\.json|hooks/[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/hook\\.json)$"
+    },
+    "canonicalManifestPath": {
+      "type": "string",
+      "pattern": "^(plugins/[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/versions/.+/.plugin/plugin\\.json|skills/[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/versions/.+/.skill/skill\\.json|mcps/[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/versions/.+/.mcp/mcp\\.json|hooks/[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/versions/.+/.hook/hook\\.json)$"
+    },
+    "canonicalSourcePath": {
+      "type": "string",
+      "pattern": "^(plugins|skills|mcps|hooks)/[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/versions/.+/AGENTRIG_SOURCE\\.json$"
+    },
+    "canonicalLockPath": {
+      "type": "string",
+      "pattern": "^(plugins|skills|mcps|hooks)/[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/versions/.+/AGENTRIG_LOCK\\.json$"
+    },
+    "canonicalReviewPath": {
+      "type": "string",
+      "pattern": "^(plugins|skills|mcps|hooks)/[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/versions/.+/AGENTRIG_REVIEW\\.json$"
+    },
+    "fileDigest": {
+      "type": "object",
+      "required": [
+        "path",
+        "digest"
+      ],
+      "properties": {
+        "path": {
+          "type": "string",
+          "pattern": "^(?!/)(?!.*(?:^|/)\\.\\.?(/|$))(?!.*//).+$"
+        },
+        "digest": {
+          "$ref": "#/$defs/sha256Digest"
+        }
+      },
+      "additionalProperties": false
+    },
+    "activeVersionRecord": {
+      "type": "object",
+      "required": [
+        "version",
+        "path",
+        "manifest",
+        "source",
+        "lock",
+        "review",
+        "trust_tier",
+        "installability",
+        "snapshot_digest",
+        "published_at"
+      ],
+      "properties": {
+        "version": {
+          "$ref": "#/$defs/semver"
+        },
+        "path": {
+          "$ref": "#/$defs/canonicalVersionPath"
+        },
+        "manifest": {
+          "$ref": "#/$defs/canonicalManifestPath"
+        },
+        "source": {
+          "$ref": "#/$defs/canonicalSourcePath"
+        },
+        "lock": {
+          "$ref": "#/$defs/canonicalLockPath"
+        },
+        "review": {
+          "$ref": "#/$defs/canonicalReviewPath"
+        },
+        "trust_tier": {
+          "$ref": "#/$defs/trustTier"
+        },
+        "installability": {
+          "$ref": "#/$defs/installabilityState"
+        },
+        "snapshot_digest": {
+          "$ref": "#/$defs/sha256Digest"
+        },
+        "published_at": {
+          "type": "string",
+          "format": "date-time"
+        }
+      },
+      "additionalProperties": false
+    }
+  }
+}

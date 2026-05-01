@@ -1,0 +1,159 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://agentrig.ai/schema/plugin-history.json",
+  "title": "AgentRig Plugin History",
+  "type": "object",
+  "required": [
+    "$schema",
+    "kind",
+    "artifact",
+    "namespace",
+    "name",
+    "description",
+    "latest_version",
+    "trust_tier",
+    "installability",
+    "active_version",
+    "versions"
+  ],
+  "properties": {
+    "$schema": {
+      "const": "https://agentrig.ai/schema/plugin-history.json"
+    },
+    "kind": {
+      "$ref": "https://agentrig.ai/schema/registry-contract.definitions.json#/$defs/artifactKind"
+    },
+    "artifact": {
+      "$ref": "https://agentrig.ai/schema/registry-contract.definitions.json#/$defs/artifactId"
+    },
+    "plugin": {
+      "$ref": "https://agentrig.ai/schema/registry-contract.definitions.json#/$defs/pluginId"
+    },
+    "namespace": {
+      "$ref": "https://agentrig.ai/schema/registry-contract.definitions.json#/$defs/namespace"
+    },
+    "name": {
+      "type": "string",
+      "minLength": 1
+    },
+    "description": {
+      "type": "string",
+      "minLength": 1
+    },
+    "latest_version": {
+      "$ref": "https://agentrig.ai/schema/registry-contract.definitions.json#/$defs/semver"
+    },
+    "trust_tier": {
+      "$ref": "https://agentrig.ai/schema/registry-contract.definitions.json#/$defs/trustTier"
+    },
+    "installability": {
+      "$ref": "https://agentrig.ai/schema/registry-contract.definitions.json#/$defs/installabilityState"
+    },
+    "active_version": {
+      "$ref": "https://agentrig.ai/schema/registry-contract.definitions.json#/$defs/activeVersionRecord"
+    },
+    "keywords": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    "advisories": {
+      "type": "array",
+      "items": {
+        "$ref": "https://agentrig.ai/schema/registry-contract.definitions.json#/$defs/advisoryId"
+      }
+    },
+    "versions": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "$ref": "https://agentrig.ai/schema/registry-contract.definitions.json#/$defs/activeVersionRecord"
+      }
+    }
+  },
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "trust_tier": {
+            "const": "official"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "installability": {
+            "const": "installable"
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "trust_tier": {
+            "const": "reviewed"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "installability": {
+            "const": "installable"
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "trust_tier": {
+            "const": "listed"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "installability": {
+            "const": "discovery_only"
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "trust_tier": {
+            "const": "blocked"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "installability": {
+            "const": "blocked"
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "trust_tier": {
+            "const": "yanked"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "installability": {
+            "const": "yanked"
+          }
+        }
+      }
+    }
+  ],
+  "additionalProperties": false
+}

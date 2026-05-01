@@ -1,0 +1,84 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://agentrig.ai/schema/agentrig-source.json",
+  "title": "AgentRig Source Artifact",
+  "type": "object",
+  "required": [
+    "$schema",
+    "upstream_repo",
+    "upstream_tag",
+    "upstream_commit",
+    "submitted_by",
+    "snapshot_created_at",
+    "snapshot_tree_digest"
+  ],
+  "properties": {
+    "$schema": {
+      "const": "https://agentrig.ai/schema/agentrig-source.json"
+    },
+    "upstream_repo": {
+      "type": "string",
+      "format": "uri"
+    },
+    "upstream_tag": {
+      "type": "string",
+      "minLength": 1
+    },
+    "upstream_commit": {
+      "$ref": "https://agentrig.ai/schema/registry-contract.definitions.json#/$defs/fullCommitSha"
+    },
+    "plugin_path": {
+      "$ref": "https://agentrig.ai/schema/registry-contract.definitions.json#/$defs/relativePluginPath"
+    },
+    "artifact_kind": {
+      "$ref": "https://agentrig.ai/schema/registry-contract.definitions.json#/$defs/artifactKind"
+    },
+    "artifact_path": {
+      "$ref": "https://agentrig.ai/schema/registry-contract.definitions.json#/$defs/relativePluginPath"
+    },
+    "submitted_by": {
+      "type": "string",
+      "minLength": 1
+    },
+    "snapshot_created_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "snapshot_tree_digest": {
+      "$ref": "https://agentrig.ai/schema/registry-contract.definitions.json#/$defs/sha256Digest"
+    }
+  },
+  "oneOf": [
+    {
+      "required": [
+        "plugin_path"
+      ],
+      "not": {
+        "anyOf": [
+          {
+            "required": [
+              "artifact_kind"
+            ]
+          },
+          {
+            "required": [
+              "artifact_path"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "required": [
+        "artifact_kind",
+        "artifact_path"
+      ],
+      "not": {
+        "required": [
+          "plugin_path"
+        ]
+      }
+    }
+  ],
+  "additionalProperties": false
+}

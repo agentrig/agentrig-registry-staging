@@ -1,0 +1,83 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://agentrig.ai/schema/hook.v1.json",
+  "title": "AgentRig Standalone Hook Manifest",
+  "type": "object",
+  "required": [
+    "kind",
+    "id",
+    "name",
+    "description",
+    "version",
+    "config"
+  ],
+  "properties": {
+    "$schema": {
+      "const": "https://agentrig.ai/schema/hook.v1.json"
+    },
+    "kind": {
+      "const": "agentrig:hook"
+    },
+    "id": {
+      "$ref": "https://agentrig.ai/schema/registry-contract.definitions.json#/$defs/artifactId"
+    },
+    "name": {
+      "type": "string",
+      "minLength": 1
+    },
+    "description": {
+      "type": "string",
+      "minLength": 1
+    },
+    "version": {
+      "$ref": "https://agentrig.ai/schema/registry-contract.definitions.json#/$defs/semver"
+    },
+    "author": {
+      "type": "string",
+      "minLength": 1
+    },
+    "license": {
+      "type": "string",
+      "minLength": 1
+    },
+    "keywords": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    "capability_set": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    "declared_network_domains": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    "declared_secrets": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    "runtime_requirements": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    "config": {
+      "$ref": "https://agentrig.ai/schema/registry-contract.definitions.json#/$defs/relativePluginPath"
+    }
+  },
+  "additionalProperties": false
+}

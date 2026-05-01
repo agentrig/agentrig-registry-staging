@@ -1,0 +1,82 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://agentrig.ai/schema/advisories.json",
+  "title": "AgentRig Advisories",
+  "type": "object",
+  "required": [
+    "$schema",
+    "generated_at",
+    "items"
+  ],
+  "properties": {
+    "$schema": {
+      "const": "https://agentrig.ai/schema/advisories.json"
+    },
+    "generated_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "items": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "id",
+          "title",
+          "published_at",
+          "plugin",
+          "affected_versions",
+          "severity",
+          "advisory_type",
+          "remediation",
+          "blocked",
+          "yanked"
+        ],
+        "properties": {
+          "id": {
+            "$ref": "https://agentrig.ai/schema/registry-contract.definitions.json#/$defs/advisoryId"
+          },
+          "title": {
+            "type": "string",
+            "minLength": 1
+          },
+          "published_at": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "plugin": {
+            "$ref": "https://agentrig.ai/schema/registry-contract.definitions.json#/$defs/pluginId"
+          },
+          "affected_versions": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+              "$ref": "https://agentrig.ai/schema/registry-contract.definitions.json#/$defs/semver"
+            }
+          },
+          "severity": {
+            "$ref": "https://agentrig.ai/schema/registry-contract.definitions.json#/$defs/advisorySeverity"
+          },
+          "advisory_type": {
+            "$ref": "https://agentrig.ai/schema/registry-contract.definitions.json#/$defs/advisoryType"
+          },
+          "remediation": {
+            "type": "string",
+            "minLength": 1
+          },
+          "replacement": {
+            "$ref": "https://agentrig.ai/schema/registry-contract.definitions.json#/$defs/pluginId"
+          },
+          "blocked": {
+            "type": "boolean"
+          },
+          "yanked": {
+            "type": "boolean"
+          }
+        },
+        "additionalProperties": false
+      }
+    }
+  },
+  "additionalProperties": false
+}

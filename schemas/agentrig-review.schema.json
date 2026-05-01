@@ -1,0 +1,83 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://agentrig.ai/schema/agentrig-review.json",
+  "title": "AgentRig Review Artifact",
+  "type": "object",
+  "required": [
+    "$schema",
+    "review_status",
+    "reviewer",
+    "reviewed_at",
+    "scanner_summary",
+    "policy_decisions",
+    "trust_tier_basis"
+  ],
+  "properties": {
+    "$schema": {
+      "const": "https://agentrig.ai/schema/agentrig-review.json"
+    },
+    "review_status": {
+      "$ref": "https://agentrig.ai/schema/registry-contract.definitions.json#/$defs/reviewStatus"
+    },
+    "reviewer": {
+      "type": "string",
+      "minLength": 1
+    },
+    "reviewed_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "scanner_summary": {
+      "type": "object",
+      "required": [
+        "status"
+      ],
+      "properties": {
+        "status": {
+          "type": "string",
+          "enum": [
+            "pass",
+            "warn",
+            "fail"
+          ]
+        },
+        "findings": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "policy_decisions": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    "trust_tier_basis": {
+      "type": "object",
+      "required": [
+        "trust_tier",
+        "installability",
+        "rationale"
+      ],
+      "properties": {
+        "trust_tier": {
+          "$ref": "https://agentrig.ai/schema/registry-contract.definitions.json#/$defs/trustTier"
+        },
+        "installability": {
+          "$ref": "https://agentrig.ai/schema/registry-contract.definitions.json#/$defs/installabilityState"
+        },
+        "rationale": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": false
+}

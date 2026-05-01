@@ -1,0 +1,123 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://agentrig.ai/schema/agentrig-lock.json",
+  "title": "AgentRig Lock Artifact",
+  "type": "object",
+  "required": [
+    "$schema",
+    "version",
+    "file_digests",
+    "capability_set",
+    "declared_network_domains",
+    "declared_secrets",
+    "runtime_requirements",
+    "dependencies",
+    "snapshot_digest"
+  ],
+  "properties": {
+    "$schema": {
+      "const": "https://agentrig.ai/schema/agentrig-lock.json"
+    },
+    "plugin": {
+      "$ref": "https://agentrig.ai/schema/registry-contract.definitions.json#/$defs/pluginId"
+    },
+    "artifact_kind": {
+      "$ref": "https://agentrig.ai/schema/registry-contract.definitions.json#/$defs/artifactKind"
+    },
+    "artifact_id": {
+      "$ref": "https://agentrig.ai/schema/registry-contract.definitions.json#/$defs/artifactId"
+    },
+    "version": {
+      "$ref": "https://agentrig.ai/schema/registry-contract.definitions.json#/$defs/semver"
+    },
+    "file_digests": {
+      "type": "array",
+      "items": {
+        "$ref": "https://agentrig.ai/schema/registry-contract.definitions.json#/$defs/fileDigest"
+      }
+    },
+    "capability_set": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    "declared_network_domains": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    "declared_secrets": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    "runtime_requirements": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    "dependencies": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "plugin",
+          "version"
+        ],
+        "properties": {
+          "plugin": {
+            "$ref": "https://agentrig.ai/schema/registry-contract.definitions.json#/$defs/pluginId"
+          },
+          "version": {
+            "$ref": "https://agentrig.ai/schema/registry-contract.definitions.json#/$defs/semver"
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "snapshot_digest": {
+      "$ref": "https://agentrig.ai/schema/registry-contract.definitions.json#/$defs/sha256Digest"
+    }
+  },
+  "oneOf": [
+    {
+      "required": [
+        "plugin"
+      ],
+      "not": {
+        "anyOf": [
+          {
+            "required": [
+              "artifact_kind"
+            ]
+          },
+          {
+            "required": [
+              "artifact_id"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "required": [
+        "artifact_kind",
+        "artifact_id"
+      ],
+      "not": {
+        "required": [
+          "plugin"
+        ]
+      }
+    }
+  ],
+  "additionalProperties": false
+}
