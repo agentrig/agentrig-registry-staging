@@ -1,0 +1,47 @@
+{
+  "$schema": "https://agentrig.ai/schema/plugin-history.json",
+  "active_version": {
+    "installability": "installable",
+    "lock": "plugins/agentrig/core/versions/0.1.0/AGENTRIG_LOCK.json",
+    "manifest": "plugins/agentrig/core/versions/0.1.0/.plugin/plugin.json",
+    "path": "plugins/agentrig/core/versions/0.1.0/",
+    "published_at": "2026-05-02T12:00:00Z",
+    "review": "plugins/agentrig/core/versions/0.1.0/AGENTRIG_REVIEW.json",
+    "snapshot_digest": "sha256:e8cf5075c1816a74209993303e6051c45725bddab1aabdcc2fd00da2c3a67271",
+    "source": "plugins/agentrig/core/versions/0.1.0/AGENTRIG_SOURCE.json",
+    "trust_tier": "official",
+    "version": "0.1.0"
+  },
+  "artifact": "agentrig.core",
+  "description": "Bundled AgentRig core skills (arig-*): architecture ownership, adapter extraction, lightweight review, duplicate-ownership audit, hard-cut policy, root-cause debugging, and consolidate test suites.",
+  "installability": "installable",
+  "keywords": [
+    "architecture",
+    "ownership",
+    "review",
+    "refactoring",
+    "debugging",
+    "testing",
+    "core"
+  ],
+  "kind": "plugin",
+  "latest_version": "0.1.0",
+  "name": "Core",
+  "namespace": "agentrig",
+  "plugin": "agentrig.core",
+  "trust_tier": "official",
+  "versions": [
+    {
+      "installability": "installable",
+      "lock": "plugins/agentrig/core/versions/0.1.0/AGENTRIG_LOCK.json",
+      "manifest": "plugins/agentrig/core/versions/0.1.0/.plugin/plugin.json",
+      "path": "plugins/agentrig/core/versions/0.1.0/",
+      "published_at": "2026-05-02T12:00:00Z",
+      "review": "plugins/agentrig/core/versions/0.1.0/AGENTRIG_REVIEW.json",
+      "snapshot_digest": "sha256:e8cf5075c1816a74209993303e6051c45725bddab1aabdcc2fd00da2c3a67271",
+      "source": "plugins/agentrig/core/versions/0.1.0/AGENTRIG_SOURCE.json",
+      "trust_tier": "official",
+      "version": "0.1.0"
+    }
+  ]
+}

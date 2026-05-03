@@ -1,0 +1,4 @@
+interface:
+  display_name: "Adapter Shared Extraction"
+  short_description: "Extract repeatable adapter patterns safely"
+  default_prompt: "Use $arig-adapter-shared-extraction to refactor repeated adapters into shared abstractions."

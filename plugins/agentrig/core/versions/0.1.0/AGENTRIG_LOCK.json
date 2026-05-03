@@ -1,0 +1,101 @@
+{
+  "$schema": "https://agentrig.ai/schema/agentrig-lock.json",
+  "capability_set": [],
+  "declared_network_domains": [],
+  "declared_secrets": [],
+  "dependencies": [],
+  "file_digests": [
+    {
+      "digest": "sha256:341a4eee51c3180c1854cca17193541547320e970d1f4024216fb19a4b600add",
+      "path": ".plugin/plugin.json"
+    },
+    {
+      "digest": "sha256:adc37366f403835c1470ab2df93d3837d4719372fc1ef8593d922e06f033f8b2",
+      "path": "LICENSE"
+    },
+    {
+      "digest": "sha256:cd378716cd3cc682bbadd549de5b00ac5fe21b4b5638f477c37b7c564ce144a1",
+      "path": "README.md"
+    },
+    {
+      "digest": "sha256:420e75ab7e63adbda6ee9b1293a1e84a71b1e3243fb548d96f735fe1ae1759b2",
+      "path": "skills/arig-adapter-shared-extraction/agents/openai.yaml"
+    },
+    {
+      "digest": "sha256:2cf5672e7a5df4446c618970430e1258d17010a96804982eb5dea72a93271abf",
+      "path": "skills/arig-adapter-shared-extraction/references/heuristics.md"
+    },
+    {
+      "digest": "sha256:a2b6f5c9fb6df07e74f66587c5496747992b9a527c0881d4cd0628670f7a1bac",
+      "path": "skills/arig-adapter-shared-extraction/SKILL.md"
+    },
+    {
+      "digest": "sha256:4f56581353a84279b230d8f65c60067f70076e11be5c2bbe5400f1cb9c8fa14a",
+      "path": "skills/arig-architecture-ownership/agents/openai.yaml"
+    },
+    {
+      "digest": "sha256:0f67d21c43a550b247a31db103eb228db356866700974c7af524c33811d0af6f",
+      "path": "skills/arig-architecture-ownership/references/ownership-matrix.md"
+    },
+    {
+      "digest": "sha256:c702b3203a6471a14f85a494c372166fafa11ff4580350b222468c9c0afed6de",
+      "path": "skills/arig-architecture-ownership/SKILL.md"
+    },
+    {
+      "digest": "sha256:52a84e6b02f37f8f31e00a7bfad5b318f547cef051548d165e27ec5765d4b921",
+      "path": "skills/arig-code-review-low/agents/openai.yaml"
+    },
+    {
+      "digest": "sha256:95b581194409940506013857ba5761b424273a3295ccd3465aee36b0383883ec",
+      "path": "skills/arig-code-review-low/SKILL.md"
+    },
+    {
+      "digest": "sha256:353aca989c8b217d9f98f53b9e564b50a66fd57ecd05d8c0fba1e9b921960810",
+      "path": "skills/arig-consolidate-test-suites/agents/openai.yaml"
+    },
+    {
+      "digest": "sha256:3f7a1d68dd445f04e8e4c8c1f4c612c07c890a975cf0b7a7dad40ac6fc3a492f",
+      "path": "skills/arig-consolidate-test-suites/SKILL.md"
+    },
+    {
+      "digest": "sha256:69606a65b21fc86d25421e6da80cd939ff871947e8d62dc197c2c191ff37745f",
+      "path": "skills/arig-find-duplicate-ownership/agents/duplicate-ownership-explorer.toml"
+    },
+    {
+      "digest": "sha256:6d26bf896b0e4993998c7c991bd49f38467f4538422b57094e38f081435f7d3c",
+      "path": "skills/arig-find-duplicate-ownership/agents/openai.yaml"
+    },
+    {
+      "digest": "sha256:bf70da6e6c580bce58375ba1974db89495dd4d684bacebf2ff716da6b7d00ffe",
+      "path": "skills/arig-find-duplicate-ownership/agents/ownership-taxonomy-mapper.toml"
+    },
+    {
+      "digest": "sha256:5de04d07ae1c3f1a6599d6f1714679bd20d22f03ddef0abd3e722f9755892736",
+      "path": "skills/arig-find-duplicate-ownership/agents/ssot-judge.toml"
+    },
+    {
+      "digest": "sha256:878f761119b77a3d35d2170037cfd73d58ace954b4c995d4e247783d8ab692ca",
+      "path": "skills/arig-find-duplicate-ownership/references/audit-prompts.md"
+    },
+    {
+      "digest": "sha256:fb73ed5ee614f4667b52f642840ab681066be005781fa26975a85eaed2029e7d",
+      "path": "skills/arig-find-duplicate-ownership/SKILL.md"
+    },
+    {
+      "digest": "sha256:5f4568c9c8436bd849486066c61b606b26e5dfb9fd6f168329e11063162d693d",
+      "path": "skills/arig-hard-cut/agents/openai.yaml"
+    },
+    {
+      "digest": "sha256:9a0ee0728a377d8463f71ebb294b0b90039c857db078cfca6533ce98f9514122",
+      "path": "skills/arig-hard-cut/SKILL.md"
+    },
+    {
+      "digest": "sha256:0a406b5ca12b3db174555b0c4f06f12b55bdbd42b040477b1b0df7cd60501f3c",
+      "path": "skills/arig-root-cause-finder/SKILL.md"
+    }
+  ],
+  "plugin": "agentrig.core",
+  "runtime_requirements": [],
+  "snapshot_digest": "sha256:e8cf5075c1816a74209993303e6051c45725bddab1aabdcc2fd00da2c3a67271",
+  "version": "0.1.0"
+}

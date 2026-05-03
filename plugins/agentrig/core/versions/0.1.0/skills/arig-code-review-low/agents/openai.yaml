@@ -1,0 +1,4 @@
+interface:
+  display_name: "Code Review Low"
+  short_description: "Lightweight code review for focused risk checks"
+  default_prompt: "Use $arig-code-review-low to review this change for smells, security, performance, and missing tests."
