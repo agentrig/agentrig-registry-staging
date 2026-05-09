@@ -1,0 +1,19 @@
+{
+  "$schema": "https://agentrig.ai/schema/agentrig-review.json",
+  "policy_decisions": [
+    "mirror_input_is_sdk_install_bundle",
+    "install_bundle_hashes_verified",
+    "listing_installability_available"
+  ],
+  "review_status": "approved",
+  "reviewed_at": "2026-05-09T18:59:54.457Z",
+  "reviewer": "user:k57748smbwe7h52gepv46mvp1180461x",
+  "scanner_summary": {
+    "status": "pass"
+  },
+  "trust_tier_basis": {
+    "installability": "installable",
+    "rationale": "This registry entry mirrors a Convex-approved AgentRig marketplace listing.",
+    "trust_tier": "reviewed"
+  }
+}
