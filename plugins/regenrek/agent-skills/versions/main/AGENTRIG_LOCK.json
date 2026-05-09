@@ -1,0 +1,638 @@
+{
+  "$schema": "https://agentrig.ai/schema/agentrig-lock.json",
+  "capability_set": [],
+  "declared_network_domains": [],
+  "declared_secrets": [],
+  "dependencies": [],
+  "file_digests": [
+    {
+      "digest": "sha256:97e8153b9b4e69e97d5a1169b56e24af0366f985d1f74c09ff6b0df3a6ddea3a",
+      "path": "skills/app-spec-packager/agents/openai.yaml",
+      "size": 330
+    },
+    {
+      "digest": "sha256:4dcdbb64597c63ed6d9b2e05981e9870ab554481d743b40247e840ee78cc1c16",
+      "path": "skills/app-spec-packager/references/document-blueprints.md",
+      "size": 9236
+    },
+    {
+      "digest": "sha256:258626fccde4361c5282ea82378b5697c8825c71a954267c7aa7a9ba3f52424a",
+      "path": "skills/app-spec-packager/references/platform-modules.md",
+      "size": 6616
+    },
+    {
+      "digest": "sha256:fde8d38daef5a9891e43f1bad52a7bacf1598891b8b012d74ede72e8073a6382",
+      "path": "skills/app-spec-packager/references/safety-privacy.md",
+      "size": 6083
+    },
+    {
+      "digest": "sha256:43886a31d26d4985e02cf65726e5e57ae139af6eefcb91cc0e0a47661fd00e90",
+      "path": "skills/app-spec-packager/references/task-taxonomy.md",
+      "size": 4681
+    },
+    {
+      "digest": "sha256:cac237753db6acbc17242d9abd4212864f8cfd2beef49a923868f013bbe29d40",
+      "path": "skills/app-spec-packager/references/validation-checklist.md",
+      "size": 4240
+    },
+    {
+      "digest": "sha256:16f2673ce97dceb83d377db6402e8489580602e0bf259e5df3725e51646e7e23",
+      "path": "skills/app-spec-packager/scripts/create_spec_package.py",
+      "size": 14081
+    },
+    {
+      "digest": "sha256:ba9c36e6a1783217b48d28e2a3552ff74dda1a05f1e154f67054a443fd41afb0",
+      "path": "skills/app-spec-packager/SKILL.md",
+      "size": 6145
+    },
+    {
+      "digest": "sha256:6e343b25113eaf73412afd3f2332783f58b002c993ec1ecd1ce36b95771b958f",
+      "path": "skills/architecture-ownership/agents/openai.yaml",
+      "size": 318
+    },
+    {
+      "digest": "sha256:0f67d21c43a550b247a31db103eb228db356866700974c7af524c33811d0af6f",
+      "path": "skills/architecture-ownership/references/ownership-matrix.md",
+      "size": 3609
+    },
+    {
+      "digest": "sha256:0e6d567c8ea166b73667d85509829cce42e1d7c6edf91a63d8711ee3d4d9dfc0",
+      "path": "skills/architecture-ownership/SKILL.md",
+      "size": 5145
+    },
+    {
+      "digest": "sha256:90f2c554476b0a6b499789ace626dd040c2abe894cafb0a5722b9240688c3ffd",
+      "path": "skills/codex-analysis/SKILL.md",
+      "size": 2836
+    },
+    {
+      "digest": "sha256:8c1ab6711682a5d13a33fbebfe976302268c98af2d9e237f777743bad4d38dd9",
+      "path": "skills/codex-sandbox/references/naming.md",
+      "size": 428
+    },
+    {
+      "digest": "sha256:19f1ff9b4af2668aae000e539fbd40bb1777cc360fb1fb76530131b80ebd75a8",
+      "path": "skills/codex-sandbox/scripts/codex_sandbox.py",
+      "size": 18351
+    },
+    {
+      "digest": "sha256:35a8341b4e624c74d82169b7d3e1407f915bbb164b635c8d55b35ad4706a2d16",
+      "path": "skills/codex-sandbox/scripts/codex-task",
+      "size": 362
+    },
+    {
+      "digest": "sha256:9cc3f3e262ba47431d94b7e22f684ce1058b70c8c057d031979ecf1ceff859eb",
+      "path": "skills/codex-sandbox/SKILL.md",
+      "size": 4930
+    },
+    {
+      "digest": "sha256:af1911562d2a8cde5b266f721c008702d2563c9e46e76d940dd5a046490f3d1c",
+      "path": "skills/consolidate-test-suites/agents/openai.yaml",
+      "size": 319
+    },
+    {
+      "digest": "sha256:a6e350d734435dd3462481bf909ec90bb270baa1db579fc41d0c0659a1cc02db",
+      "path": "skills/consolidate-test-suites/SKILL.md",
+      "size": 4030
+    },
+    {
+      "digest": "sha256:de2ada12461ea3db42ad5471c8f344c4aa3f5c08b8cc0d00ebcc89249de5c31d",
+      "path": "skills/create-new-static-website/SKILL.md",
+      "size": 1507
+    },
+    {
+      "digest": "sha256:28b21610e93236b43c58291a8dce6c7e195ff7fb42e81af6bda98086717c1c2a",
+      "path": "skills/debug-lldb/references/triage.md",
+      "size": 1065
+    },
+    {
+      "digest": "sha256:8e1cdac9afd478f7f299b573ed3464cbe7a752cb0808f5929778df46c557edff",
+      "path": "skills/debug-lldb/scripts/collect_stacks.sh",
+      "size": 1670
+    },
+    {
+      "digest": "sha256:b70a42acc143f5eeab7027a289fd885f4ce065c94cdc8a3de84932042b1c9e26",
+      "path": "skills/debug-lldb/SKILL.md",
+      "size": 1837
+    },
+    {
+      "digest": "sha256:69606a65b21fc86d25421e6da80cd939ff871947e8d62dc197c2c191ff37745f",
+      "path": "skills/find-duplicate-ownership/agents/duplicate-ownership-explorer.toml",
+      "size": 747
+    },
+    {
+      "digest": "sha256:0ef6c312ca68f0cafb24e3ae87561ee5931ccfc78af659a7a4fdf8f9552de6f9",
+      "path": "skills/find-duplicate-ownership/agents/openai.yaml",
+      "size": 290
+    },
+    {
+      "digest": "sha256:bf70da6e6c580bce58375ba1974db89495dd4d684bacebf2ff716da6b7d00ffe",
+      "path": "skills/find-duplicate-ownership/agents/ownership-taxonomy-mapper.toml",
+      "size": 677
+    },
+    {
+      "digest": "sha256:5de04d07ae1c3f1a6599d6f1714679bd20d22f03ddef0abd3e722f9755892736",
+      "path": "skills/find-duplicate-ownership/agents/ssot-judge.toml",
+      "size": 706
+    },
+    {
+      "digest": "sha256:79f8769e3d1befa16ca12ae9ec5e5715a985c5cd50076f08661063a8358c23e3",
+      "path": "skills/find-duplicate-ownership/references/audit-prompts.md",
+      "size": 2982
+    },
+    {
+      "digest": "sha256:9f404d69f7586e1177d4b3a4d60be51f7997c3e50d8e5c1bfec05313f2f7251e",
+      "path": "skills/find-duplicate-ownership/SKILL.md",
+      "size": 5073
+    },
+    {
+      "digest": "sha256:27bdc73f9d8a33511fb07af4f622f734f7b75d8181cdea71f5d5799bfbcf4fbd",
+      "path": "skills/gh-repo-bootstrap/scripts/gh_repo_bootstrap.py",
+      "size": 9180
+    },
+    {
+      "digest": "sha256:6ecd550b7ebd9e2473f659684cdea259b71f96c90b59a214c55de7a576fea3e6",
+      "path": "skills/gh-repo-bootstrap/SKILL.md",
+      "size": 2464
+    },
+    {
+      "digest": "sha256:a82cc1310b3576c02913c84ce76cb964c7cdaae20b7fea2337b4a859277f9a85",
+      "path": "skills/git-safe-workflow/SKILL.md",
+      "size": 5435
+    },
+    {
+      "digest": "sha256:c9d3f08ccfd154fe75b32845ee98ce09299a7a50eaae35e9556c8743e8e6157a",
+      "path": "skills/gitwhat/scripts/gitwhat.sh",
+      "size": 2422
+    },
+    {
+      "digest": "sha256:074658e6907ec8c92a8bc0d6f6520e9135c2d43921ebe822f0708f9523421aea",
+      "path": "skills/gitwhat/SKILL.md",
+      "size": 859
+    },
+    {
+      "digest": "sha256:cac1abf1d3fea65921626b248165e90a03d4040be5f9f4f7fb90326fe72d0a9c",
+      "path": "skills/go-local-health/scripts/go-local-health",
+      "size": 2651
+    },
+    {
+      "digest": "sha256:635f3967d778b4ba1d5e7308cfdf901d3fdbc0e104c4b25e8e0fe1a2aad763f9",
+      "path": "skills/go-local-health/SKILL.md",
+      "size": 2932
+    },
+    {
+      "digest": "sha256:817aaba7a7530bbfe98df69536836e2569f6bdba03b752860581918655478dd5",
+      "path": "skills/hard-cut/agents/openai.yaml",
+      "size": 241
+    },
+    {
+      "digest": "sha256:e622c9215a87bfd0d3038629f2bf16c984ad689ca162145e1b6fb3c329e2a059",
+      "path": "skills/hard-cut/SKILL.md",
+      "size": 4096
+    },
+    {
+      "digest": "sha256:855053cc32e09ae7502bd1202c3d64291f03024376c0690d887ac7afcea1d964",
+      "path": "skills/homebrew-publish/references/formula-go.md",
+      "size": 619
+    },
+    {
+      "digest": "sha256:25c256050d9a2f6f5ef3fb1cced62bacdf15cd43f063e194333d9e376f9e760d",
+      "path": "skills/homebrew-publish/references/formula-node.md",
+      "size": 643
+    },
+    {
+      "digest": "sha256:8e79cb07b4b98e200156cf70546c4e3f927138eb003420524049aa649cf84e8a",
+      "path": "skills/homebrew-publish/references/formula-prebuilt.md",
+      "size": 1124
+    },
+    {
+      "digest": "sha256:d7d9b8a793a9c650bcb1a5e77eddf2e968296285d318dfd09e03183828f1e1e4",
+      "path": "skills/homebrew-publish/references/formula-python.md",
+      "size": 637
+    },
+    {
+      "digest": "sha256:8cb50438df52bf8b0e5cc6c58a6609d780eae7d59abbbbb5460078bb270c4290",
+      "path": "skills/homebrew-publish/references/formula-rust.md",
+      "size": 604
+    },
+    {
+      "digest": "sha256:db6d9481f9c7c0c9ae47cafb1edd767f5924ceded9f2c1ec9846692d53cb1fb7",
+      "path": "skills/homebrew-publish/SKILL.md",
+      "size": 2420
+    },
+    {
+      "digest": "sha256:101fd5e1897e4765e6759a8b7c839a7eaa84d7457784f60d2bb537fb5332d25f",
+      "path": "skills/pr-commiter/scripts/pr-commiter.sh",
+      "size": 20006
+    },
+    {
+      "digest": "sha256:79295bed40b20da9c55d6e55855a9234e303b89fd171c0b87a30141ccef829fb",
+      "path": "skills/pr-commiter/SKILL.md",
+      "size": 1793
+    },
+    {
+      "digest": "sha256:9801d4a764a0a05d742c4636373f5ff4d1bb59bc250eae1d59f06dbe904823b8",
+      "path": "skills/redesign-my-landingpage/assets/vite-shadcn-iconify-landing/src/pages/LandingPage.tsx",
+      "size": 17928
+    },
+    {
+      "digest": "sha256:db957b03d919585ba335aae09cf77cf61486599afb06f1b3d761975bf6b4f248",
+      "path": "skills/redesign-my-landingpage/references/aesthetic-directions.md",
+      "size": 2481
+    },
+    {
+      "digest": "sha256:47d72bb89bb65de6bef34a528d1e4091cf2fbdcbad20ae5dfdea11640ddd1cc3",
+      "path": "skills/redesign-my-landingpage/references/copy-templates.md",
+      "size": 2242
+    },
+    {
+      "digest": "sha256:6f1c45aa2a131d6e0c2f3459666d4d71a8b02a71e362ecac3e822ec8a9e626a7",
+      "path": "skills/redesign-my-landingpage/references/iconify.md",
+      "size": 1811
+    },
+    {
+      "digest": "sha256:ba45f82c3b1d10fbe3e4a274a028696df1b6d15a44be8a736e3796b712efbd24",
+      "path": "skills/redesign-my-landingpage/references/landing-page-anatomy.md",
+      "size": 1808
+    },
+    {
+      "digest": "sha256:d5437ee9938fd63a9739dcb677d97af5e6c505206cf0e0fdebb12925f62ad0df",
+      "path": "skills/redesign-my-landingpage/references/section-templates.md",
+      "size": 11227
+    },
+    {
+      "digest": "sha256:7cf749d0a8e38f90096623ee573244da21544268f59bb12a2cdec9d8a3ea6114",
+      "path": "skills/redesign-my-landingpage/references/shadcn-vite-setup.md",
+      "size": 2367
+    },
+    {
+      "digest": "sha256:1205f7278108c34ec3612caba1b604b19f3c7138861a510ab4c8145f0b5499dd",
+      "path": "skills/redesign-my-landingpage/SKILL.md",
+      "size": 7175
+    },
+    {
+      "digest": "sha256:ceeccc4f1a7815762c490d2227fa5cf64ab835339b002728ea0fcd415ef635ed",
+      "path": "skills/root-cause-finder/SKILL.md",
+      "size": 3435
+    },
+    {
+      "digest": "sha256:854fd5412ed38fc879da3db7dcdf22975b09b2c6a0db5d2bb1488321011fc33b",
+      "path": "skills/security-leak-guardrails/examples.md",
+      "size": 648
+    },
+    {
+      "digest": "sha256:266218d2c06ec96cc8e663fad205ce8e0d4b072a30f3784e5e00e4f44995f98f",
+      "path": "skills/security-leak-guardrails/README.md",
+      "size": 2003
+    },
+    {
+      "digest": "sha256:c05778d9a23e86c61f5ffd5ccf465d5a47315ed69bb5c9bd11bb14f64195d0a5",
+      "path": "skills/security-leak-guardrails/reference.md",
+      "size": 7376
+    },
+    {
+      "digest": "sha256:694c4cb890a3c71edfb13d7a3c533c2174d61dfced4d3d2daf829e613c6142c7",
+      "path": "skills/security-leak-guardrails/scripts/block-forbidden-staged-files.mjs",
+      "size": 3988
+    },
+    {
+      "digest": "sha256:fa0a6f247260e78ad93118234637964a09d98e72ea170742d2e267810eaa022f",
+      "path": "skills/security-leak-guardrails/scripts/secleak-check.sh",
+      "size": 1161
+    },
+    {
+      "digest": "sha256:d91c40139f84bfb445fe2ffd7f0845bc037d1cc751472570bc762a98fcec2fa5",
+      "path": "skills/security-leak-guardrails/SKILL.md",
+      "size": 2071
+    },
+    {
+      "digest": "sha256:97e8153b9b4e69e97d5a1169b56e24af0366f985d1f74c09ff6b0df3a6ddea3a",
+      "path": "skills/shadcn-vite-iconify-landing-page/app-spec-packager/agents/openai.yaml",
+      "size": 330
+    },
+    {
+      "digest": "sha256:4dcdbb64597c63ed6d9b2e05981e9870ab554481d743b40247e840ee78cc1c16",
+      "path": "skills/shadcn-vite-iconify-landing-page/app-spec-packager/references/document-blueprints.md",
+      "size": 9236
+    },
+    {
+      "digest": "sha256:258626fccde4361c5282ea82378b5697c8825c71a954267c7aa7a9ba3f52424a",
+      "path": "skills/shadcn-vite-iconify-landing-page/app-spec-packager/references/platform-modules.md",
+      "size": 6616
+    },
+    {
+      "digest": "sha256:fde8d38daef5a9891e43f1bad52a7bacf1598891b8b012d74ede72e8073a6382",
+      "path": "skills/shadcn-vite-iconify-landing-page/app-spec-packager/references/safety-privacy.md",
+      "size": 6083
+    },
+    {
+      "digest": "sha256:43886a31d26d4985e02cf65726e5e57ae139af6eefcb91cc0e0a47661fd00e90",
+      "path": "skills/shadcn-vite-iconify-landing-page/app-spec-packager/references/task-taxonomy.md",
+      "size": 4681
+    },
+    {
+      "digest": "sha256:cac237753db6acbc17242d9abd4212864f8cfd2beef49a923868f013bbe29d40",
+      "path": "skills/shadcn-vite-iconify-landing-page/app-spec-packager/references/validation-checklist.md",
+      "size": 4240
+    },
+    {
+      "digest": "sha256:16f2673ce97dceb83d377db6402e8489580602e0bf259e5df3725e51646e7e23",
+      "path": "skills/shadcn-vite-iconify-landing-page/app-spec-packager/scripts/create_spec_package.py",
+      "size": 14081
+    },
+    {
+      "digest": "sha256:ba9c36e6a1783217b48d28e2a3552ff74dda1a05f1e154f67054a443fd41afb0",
+      "path": "skills/shadcn-vite-iconify-landing-page/app-spec-packager/SKILL.md",
+      "size": 6145
+    },
+    {
+      "digest": "sha256:6e343b25113eaf73412afd3f2332783f58b002c993ec1ecd1ce36b95771b958f",
+      "path": "skills/shadcn-vite-iconify-landing-page/architecture-ownership/agents/openai.yaml",
+      "size": 318
+    },
+    {
+      "digest": "sha256:0f67d21c43a550b247a31db103eb228db356866700974c7af524c33811d0af6f",
+      "path": "skills/shadcn-vite-iconify-landing-page/architecture-ownership/references/ownership-matrix.md",
+      "size": 3609
+    },
+    {
+      "digest": "sha256:0e6d567c8ea166b73667d85509829cce42e1d7c6edf91a63d8711ee3d4d9dfc0",
+      "path": "skills/shadcn-vite-iconify-landing-page/architecture-ownership/SKILL.md",
+      "size": 5145
+    },
+    {
+      "digest": "sha256:90f2c554476b0a6b499789ace626dd040c2abe894cafb0a5722b9240688c3ffd",
+      "path": "skills/shadcn-vite-iconify-landing-page/codex-analysis/SKILL.md",
+      "size": 2836
+    },
+    {
+      "digest": "sha256:8c1ab6711682a5d13a33fbebfe976302268c98af2d9e237f777743bad4d38dd9",
+      "path": "skills/shadcn-vite-iconify-landing-page/codex-sandbox/references/naming.md",
+      "size": 428
+    },
+    {
+      "digest": "sha256:19f1ff9b4af2668aae000e539fbd40bb1777cc360fb1fb76530131b80ebd75a8",
+      "path": "skills/shadcn-vite-iconify-landing-page/codex-sandbox/scripts/codex_sandbox.py",
+      "size": 18351
+    },
+    {
+      "digest": "sha256:35a8341b4e624c74d82169b7d3e1407f915bbb164b635c8d55b35ad4706a2d16",
+      "path": "skills/shadcn-vite-iconify-landing-page/codex-sandbox/scripts/codex-task",
+      "size": 362
+    },
+    {
+      "digest": "sha256:9cc3f3e262ba47431d94b7e22f684ce1058b70c8c057d031979ecf1ceff859eb",
+      "path": "skills/shadcn-vite-iconify-landing-page/codex-sandbox/SKILL.md",
+      "size": 4930
+    },
+    {
+      "digest": "sha256:af1911562d2a8cde5b266f721c008702d2563c9e46e76d940dd5a046490f3d1c",
+      "path": "skills/shadcn-vite-iconify-landing-page/consolidate-test-suites/agents/openai.yaml",
+      "size": 319
+    },
+    {
+      "digest": "sha256:a6e350d734435dd3462481bf909ec90bb270baa1db579fc41d0c0659a1cc02db",
+      "path": "skills/shadcn-vite-iconify-landing-page/consolidate-test-suites/SKILL.md",
+      "size": 4030
+    },
+    {
+      "digest": "sha256:de2ada12461ea3db42ad5471c8f344c4aa3f5c08b8cc0d00ebcc89249de5c31d",
+      "path": "skills/shadcn-vite-iconify-landing-page/create-new-static-website/SKILL.md",
+      "size": 1507
+    },
+    {
+      "digest": "sha256:28b21610e93236b43c58291a8dce6c7e195ff7fb42e81af6bda98086717c1c2a",
+      "path": "skills/shadcn-vite-iconify-landing-page/debug-lldb/references/triage.md",
+      "size": 1065
+    },
+    {
+      "digest": "sha256:8e1cdac9afd478f7f299b573ed3464cbe7a752cb0808f5929778df46c557edff",
+      "path": "skills/shadcn-vite-iconify-landing-page/debug-lldb/scripts/collect_stacks.sh",
+      "size": 1670
+    },
+    {
+      "digest": "sha256:b70a42acc143f5eeab7027a289fd885f4ce065c94cdc8a3de84932042b1c9e26",
+      "path": "skills/shadcn-vite-iconify-landing-page/debug-lldb/SKILL.md",
+      "size": 1837
+    },
+    {
+      "digest": "sha256:69606a65b21fc86d25421e6da80cd939ff871947e8d62dc197c2c191ff37745f",
+      "path": "skills/shadcn-vite-iconify-landing-page/find-duplicate-ownership/agents/duplicate-ownership-explorer.toml",
+      "size": 747
+    },
+    {
+      "digest": "sha256:0ef6c312ca68f0cafb24e3ae87561ee5931ccfc78af659a7a4fdf8f9552de6f9",
+      "path": "skills/shadcn-vite-iconify-landing-page/find-duplicate-ownership/agents/openai.yaml",
+      "size": 290
+    },
+    {
+      "digest": "sha256:bf70da6e6c580bce58375ba1974db89495dd4d684bacebf2ff716da6b7d00ffe",
+      "path": "skills/shadcn-vite-iconify-landing-page/find-duplicate-ownership/agents/ownership-taxonomy-mapper.toml",
+      "size": 677
+    },
+    {
+      "digest": "sha256:5de04d07ae1c3f1a6599d6f1714679bd20d22f03ddef0abd3e722f9755892736",
+      "path": "skills/shadcn-vite-iconify-landing-page/find-duplicate-ownership/agents/ssot-judge.toml",
+      "size": 706
+    },
+    {
+      "digest": "sha256:79f8769e3d1befa16ca12ae9ec5e5715a985c5cd50076f08661063a8358c23e3",
+      "path": "skills/shadcn-vite-iconify-landing-page/find-duplicate-ownership/references/audit-prompts.md",
+      "size": 2982
+    },
+    {
+      "digest": "sha256:9f404d69f7586e1177d4b3a4d60be51f7997c3e50d8e5c1bfec05313f2f7251e",
+      "path": "skills/shadcn-vite-iconify-landing-page/find-duplicate-ownership/SKILL.md",
+      "size": 5073
+    },
+    {
+      "digest": "sha256:27bdc73f9d8a33511fb07af4f622f734f7b75d8181cdea71f5d5799bfbcf4fbd",
+      "path": "skills/shadcn-vite-iconify-landing-page/gh-repo-bootstrap/scripts/gh_repo_bootstrap.py",
+      "size": 9180
+    },
+    {
+      "digest": "sha256:6ecd550b7ebd9e2473f659684cdea259b71f96c90b59a214c55de7a576fea3e6",
+      "path": "skills/shadcn-vite-iconify-landing-page/gh-repo-bootstrap/SKILL.md",
+      "size": 2464
+    },
+    {
+      "digest": "sha256:a82cc1310b3576c02913c84ce76cb964c7cdaae20b7fea2337b4a859277f9a85",
+      "path": "skills/shadcn-vite-iconify-landing-page/git-safe-workflow/SKILL.md",
+      "size": 5435
+    },
+    {
+      "digest": "sha256:c9d3f08ccfd154fe75b32845ee98ce09299a7a50eaae35e9556c8743e8e6157a",
+      "path": "skills/shadcn-vite-iconify-landing-page/gitwhat/scripts/gitwhat.sh",
+      "size": 2422
+    },
+    {
+      "digest": "sha256:074658e6907ec8c92a8bc0d6f6520e9135c2d43921ebe822f0708f9523421aea",
+      "path": "skills/shadcn-vite-iconify-landing-page/gitwhat/SKILL.md",
+      "size": 859
+    },
+    {
+      "digest": "sha256:cac1abf1d3fea65921626b248165e90a03d4040be5f9f4f7fb90326fe72d0a9c",
+      "path": "skills/shadcn-vite-iconify-landing-page/go-local-health/scripts/go-local-health",
+      "size": 2651
+    },
+    {
+      "digest": "sha256:635f3967d778b4ba1d5e7308cfdf901d3fdbc0e104c4b25e8e0fe1a2aad763f9",
+      "path": "skills/shadcn-vite-iconify-landing-page/go-local-health/SKILL.md",
+      "size": 2932
+    },
+    {
+      "digest": "sha256:817aaba7a7530bbfe98df69536836e2569f6bdba03b752860581918655478dd5",
+      "path": "skills/shadcn-vite-iconify-landing-page/hard-cut/agents/openai.yaml",
+      "size": 241
+    },
+    {
+      "digest": "sha256:e622c9215a87bfd0d3038629f2bf16c984ad689ca162145e1b6fb3c329e2a059",
+      "path": "skills/shadcn-vite-iconify-landing-page/hard-cut/SKILL.md",
+      "size": 4096
+    },
+    {
+      "digest": "sha256:855053cc32e09ae7502bd1202c3d64291f03024376c0690d887ac7afcea1d964",
+      "path": "skills/shadcn-vite-iconify-landing-page/homebrew-publish/references/formula-go.md",
+      "size": 619
+    },
+    {
+      "digest": "sha256:25c256050d9a2f6f5ef3fb1cced62bacdf15cd43f063e194333d9e376f9e760d",
+      "path": "skills/shadcn-vite-iconify-landing-page/homebrew-publish/references/formula-node.md",
+      "size": 643
+    },
+    {
+      "digest": "sha256:8e79cb07b4b98e200156cf70546c4e3f927138eb003420524049aa649cf84e8a",
+      "path": "skills/shadcn-vite-iconify-landing-page/homebrew-publish/references/formula-prebuilt.md",
+      "size": 1124
+    },
+    {
+      "digest": "sha256:d7d9b8a793a9c650bcb1a5e77eddf2e968296285d318dfd09e03183828f1e1e4",
+      "path": "skills/shadcn-vite-iconify-landing-page/homebrew-publish/references/formula-python.md",
+      "size": 637
+    },
+    {
+      "digest": "sha256:8cb50438df52bf8b0e5cc6c58a6609d780eae7d59abbbbb5460078bb270c4290",
+      "path": "skills/shadcn-vite-iconify-landing-page/homebrew-publish/references/formula-rust.md",
+      "size": 604
+    },
+    {
+      "digest": "sha256:db6d9481f9c7c0c9ae47cafb1edd767f5924ceded9f2c1ec9846692d53cb1fb7",
+      "path": "skills/shadcn-vite-iconify-landing-page/homebrew-publish/SKILL.md",
+      "size": 2420
+    },
+    {
+      "digest": "sha256:101fd5e1897e4765e6759a8b7c839a7eaa84d7457784f60d2bb537fb5332d25f",
+      "path": "skills/shadcn-vite-iconify-landing-page/pr-commiter/scripts/pr-commiter.sh",
+      "size": 20006
+    },
+    {
+      "digest": "sha256:79295bed40b20da9c55d6e55855a9234e303b89fd171c0b87a30141ccef829fb",
+      "path": "skills/shadcn-vite-iconify-landing-page/pr-commiter/SKILL.md",
+      "size": 1793
+    },
+    {
+      "digest": "sha256:9801d4a764a0a05d742c4636373f5ff4d1bb59bc250eae1d59f06dbe904823b8",
+      "path": "skills/shadcn-vite-iconify-landing-page/redesign-my-landingpage/assets/vite-shadcn-iconify-landing/src/pages/LandingPage.tsx",
+      "size": 17928
+    },
+    {
+      "digest": "sha256:db957b03d919585ba335aae09cf77cf61486599afb06f1b3d761975bf6b4f248",
+      "path": "skills/shadcn-vite-iconify-landing-page/redesign-my-landingpage/references/aesthetic-directions.md",
+      "size": 2481
+    },
+    {
+      "digest": "sha256:47d72bb89bb65de6bef34a528d1e4091cf2fbdcbad20ae5dfdea11640ddd1cc3",
+      "path": "skills/shadcn-vite-iconify-landing-page/redesign-my-landingpage/references/copy-templates.md",
+      "size": 2242
+    },
+    {
+      "digest": "sha256:6f1c45aa2a131d6e0c2f3459666d4d71a8b02a71e362ecac3e822ec8a9e626a7",
+      "path": "skills/shadcn-vite-iconify-landing-page/redesign-my-landingpage/references/iconify.md",
+      "size": 1811
+    },
+    {
+      "digest": "sha256:ba45f82c3b1d10fbe3e4a274a028696df1b6d15a44be8a736e3796b712efbd24",
+      "path": "skills/shadcn-vite-iconify-landing-page/redesign-my-landingpage/references/landing-page-anatomy.md",
+      "size": 1808
+    },
+    {
+      "digest": "sha256:d5437ee9938fd63a9739dcb677d97af5e6c505206cf0e0fdebb12925f62ad0df",
+      "path": "skills/shadcn-vite-iconify-landing-page/redesign-my-landingpage/references/section-templates.md",
+      "size": 11227
+    },
+    {
+      "digest": "sha256:7cf749d0a8e38f90096623ee573244da21544268f59bb12a2cdec9d8a3ea6114",
+      "path": "skills/shadcn-vite-iconify-landing-page/redesign-my-landingpage/references/shadcn-vite-setup.md",
+      "size": 2367
+    },
+    {
+      "digest": "sha256:1205f7278108c34ec3612caba1b604b19f3c7138861a510ab4c8145f0b5499dd",
+      "path": "skills/shadcn-vite-iconify-landing-page/redesign-my-landingpage/SKILL.md",
+      "size": 7175
+    },
+    {
+      "digest": "sha256:ceeccc4f1a7815762c490d2227fa5cf64ab835339b002728ea0fcd415ef635ed",
+      "path": "skills/shadcn-vite-iconify-landing-page/root-cause-finder/SKILL.md",
+      "size": 3435
+    },
+    {
+      "digest": "sha256:854fd5412ed38fc879da3db7dcdf22975b09b2c6a0db5d2bb1488321011fc33b",
+      "path": "skills/shadcn-vite-iconify-landing-page/security-leak-guardrails/examples.md",
+      "size": 648
+    },
+    {
+      "digest": "sha256:266218d2c06ec96cc8e663fad205ce8e0d4b072a30f3784e5e00e4f44995f98f",
+      "path": "skills/shadcn-vite-iconify-landing-page/security-leak-guardrails/README.md",
+      "size": 2003
+    },
+    {
+      "digest": "sha256:c05778d9a23e86c61f5ffd5ccf465d5a47315ed69bb5c9bd11bb14f64195d0a5",
+      "path": "skills/shadcn-vite-iconify-landing-page/security-leak-guardrails/reference.md",
+      "size": 7376
+    },
+    {
+      "digest": "sha256:694c4cb890a3c71edfb13d7a3c533c2174d61dfced4d3d2daf829e613c6142c7",
+      "path": "skills/shadcn-vite-iconify-landing-page/security-leak-guardrails/scripts/block-forbidden-staged-files.mjs",
+      "size": 3988
+    },
+    {
+      "digest": "sha256:fa0a6f247260e78ad93118234637964a09d98e72ea170742d2e267810eaa022f",
+      "path": "skills/shadcn-vite-iconify-landing-page/security-leak-guardrails/scripts/secleak-check.sh",
+      "size": 1161
+    },
+    {
+      "digest": "sha256:d91c40139f84bfb445fe2ffd7f0845bc037d1cc751472570bc762a98fcec2fa5",
+      "path": "skills/shadcn-vite-iconify-landing-page/security-leak-guardrails/SKILL.md",
+      "size": 2071
+    },
+    {
+      "digest": "sha256:de928ece6f610c31c515416ab00955c57c1c8230975686971f4cbad5b11f5c4e",
+      "path": "skills/shadcn-vite-iconify-landing-page/shellck/scripts/run_shellck.sh",
+      "size": 1323
+    },
+    {
+      "digest": "sha256:1133257cecb38a4a114b17785df3c029d8eb01dcdf35e0edca7d658c3b1a9113",
+      "path": "skills/shadcn-vite-iconify-landing-page/shellck/SKILL.md",
+      "size": 1208
+    },
+    {
+      "digest": "sha256:f83f805332784196eae9f928e2b839a76e9567d5acc0d7b94e8b8a0d54ab7455",
+      "path": "skills/shadcn-vite-iconify-landing-page/SKILL.md",
+      "size": 7184
+    },
+    {
+      "digest": "sha256:de928ece6f610c31c515416ab00955c57c1c8230975686971f4cbad5b11f5c4e",
+      "path": "skills/shellck/scripts/run_shellck.sh",
+      "size": 1323
+    },
+    {
+      "digest": "sha256:1133257cecb38a4a114b17785df3c029d8eb01dcdf35e0edca7d658c3b1a9113",
+      "path": "skills/shellck/SKILL.md",
+      "size": 1208
+    }
+  ],
+  "plugin": "regenrek.agent-skills",
+  "runtime_requirements": [],
+  "snapshot_digest": "sha256:c5fefe1e46d0d7dee07f5546a2ece11a2cd9179084cf65f7fbb16b646a54330e",
+  "version": "main"
+}

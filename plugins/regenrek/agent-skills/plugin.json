@@ -1,0 +1,38 @@
+{
+  "$schema": "https://agentrig.ai/schema/plugin-history.json",
+  "active_version": {
+    "installability": "installable",
+    "lock": "plugins/regenrek/agent-skills/versions/main/AGENTRIG_LOCK.json",
+    "manifest": "plugins/regenrek/agent-skills/versions/main/.plugin/plugin.json",
+    "path": "plugins/regenrek/agent-skills/versions/main/",
+    "published_at": "2026-05-09T18:59:54.457Z",
+    "review": "plugins/regenrek/agent-skills/versions/main/AGENTRIG_REVIEW.json",
+    "snapshot_digest": "sha256:c5fefe1e46d0d7dee07f5546a2ece11a2cd9179084cf65f7fbb16b646a54330e",
+    "source": "plugins/regenrek/agent-skills/versions/main/AGENTRIG_SOURCE.json",
+    "trust_tier": "reviewed",
+    "version": "main"
+  },
+  "artifact": "regenrek.agent-skills",
+  "description": "Reusable coding-agent workflows packaged as an installable AgentRig plugin.",
+  "installability": "installable",
+  "kind": "plugin",
+  "latest_version": "main",
+  "name": "Agent Skills",
+  "namespace": "regenrek",
+  "plugin": "regenrek.agent-skills",
+  "trust_tier": "reviewed",
+  "versions": [
+    {
+      "installability": "installable",
+      "lock": "plugins/regenrek/agent-skills/versions/main/AGENTRIG_LOCK.json",
+      "manifest": "plugins/regenrek/agent-skills/versions/main/.plugin/plugin.json",
+      "path": "plugins/regenrek/agent-skills/versions/main/",
+      "published_at": "2026-05-09T18:59:54.457Z",
+      "review": "plugins/regenrek/agent-skills/versions/main/AGENTRIG_REVIEW.json",
+      "snapshot_digest": "sha256:c5fefe1e46d0d7dee07f5546a2ece11a2cd9179084cf65f7fbb16b646a54330e",
+      "source": "plugins/regenrek/agent-skills/versions/main/AGENTRIG_SOURCE.json",
+      "trust_tier": "reviewed",
+      "version": "main"
+    }
+  ]
+}

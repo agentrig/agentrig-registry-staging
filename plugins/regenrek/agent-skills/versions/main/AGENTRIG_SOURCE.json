@@ -1,0 +1,10 @@
+{
+  "$schema": "https://agentrig.ai/schema/agentrig-source.json",
+  "plugin_path": ".",
+  "snapshot_created_at": "2026-05-09T18:59:54.457Z",
+  "snapshot_tree_digest": "sha256:c5fefe1e46d0d7dee07f5546a2ece11a2cd9179084cf65f7fbb16b646a54330e",
+  "submitted_by": "submission:p1718r6hsszz9kh29z7jq3wqf986c4xy",
+  "upstream_commit": "df63755c3b9c2c66bd2bb4dbdf160beb41fdbeec",
+  "upstream_repo": "https://github.com/regenrek/agent-skills",
+  "upstream_tag": "main"
+}
