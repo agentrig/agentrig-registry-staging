@@ -2,7 +2,7 @@
   "$schema": "https://agentrig.ai/schema/agentrig-source.json",
   "plugin_path": "plugin",
   "snapshot_created_at": "2026-05-02T12:00:00Z",
-  "snapshot_tree_digest": "sha256:e8cf5075c1816a74209993303e6051c45725bddab1aabdcc2fd00da2c3a67271",
+  "snapshot_tree_digest": "sha256:43b26ae7cc6e9f03efe6349b206e03f91e092501d61ff81c37317f2aa8cee2e8",
   "submitted_by": "registry-bot@agentrig.ai",
   "upstream_commit": "3333333333333333333333333333333333333333",
   "upstream_repo": "https://github.com/agentrig/agentrig-registry",

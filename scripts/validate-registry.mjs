@@ -97,6 +97,27 @@ const REQUIRED_VERSION_FILES = new Set([
   'LICENSE',
   'README.md',
 ])
+const OPEN_PLUGIN_MANIFEST_ALLOWED_FIELDS = new Set([
+  '$schema',
+  'name',
+  'description',
+  'version',
+  'author',
+  'license',
+  'keywords',
+  'homepage',
+  'repository',
+  'logo',
+  'commands',
+  'agents',
+  'skills',
+  'rules',
+  'hooks',
+  'mcpServers',
+  'lspServers',
+  'outputStyles',
+  'x-agentrig',
+])
 const BLOCKED_DELIVERY_EXTENSIONS = ['.tgz', '.tar.gz', '.zip', '.tar', '.gz', '.bz2', '.xz', '.7z', '.rar']
 const BLOCKED_DELIVERY_NAME_PATTERNS = [
   /^checksums?(\.[a-z0-9]+)?$/i,
@@ -405,6 +426,7 @@ async function computeVersionDigests(versionDir) {
     fileDigests.push({
       path: file.relativePath,
       digest: sha256Hex(content),
+      size: content.byteLength,
     })
   }
 
@@ -420,7 +442,7 @@ function validateStringArray(items, where) {
   }
 }
 
-function validateFileDigests(fileDigests, where) {
+function validateFileDigests(fileDigests, where, options = { requireSize: true }) {
   assertArray(fileDigests, where)
   const seenPaths = new Set()
   let lastPath = null
@@ -428,10 +450,13 @@ function validateFileDigests(fileDigests, where) {
     const item = fileDigests[index]
     const itemWhere = `${where}[${index}]`
     assertPlainObject(item, itemWhere)
-    assertAdditionalProperties(item, new Set(['path', 'digest']), itemWhere)
+    assertAdditionalProperties(item, new Set(['path', 'digest', 'size']), itemWhere)
     assertString(item.path, `${itemWhere}.path`)
     assertPattern(item.path, RELATIVE_PATH_PATTERN, `${itemWhere}.path`)
     assertPattern(item.digest, SHA256_PATTERN, `${itemWhere}.digest`)
+    if (options.requireSize || 'size' in item) {
+      assert(Number.isInteger(item.size) && item.size >= 0, `Invalid ${itemWhere}.size: expected a non-negative integer`)
+    }
     assert(!DIGEST_EXCLUDED_RELATIVE_PATHS.has(item.path), `Invalid ${itemWhere}.path: ${item.path} is derived and must not be digest-addressed`)
     assert(!seenPaths.has(item.path), `Invalid ${where}: duplicate digest path "${item.path}"`)
     if (lastPath != null) {
@@ -444,34 +469,23 @@ function validateFileDigests(fileDigests, where) {
 
 function validatePluginManifest(manifest, pluginId, version, where) {
   assertPlainObject(manifest, where)
-  assertAdditionalProperties(
-    manifest,
-    new Set(['$schema', 'kind', 'id', 'name', 'description', 'version', 'author', 'license', 'keywords', 'pluginDependencies', 'configSchema', 'x-agentrig']),
-    where,
-  )
+  assertAdditionalProperties(manifest, OPEN_PLUGIN_MANIFEST_ALLOWED_FIELDS, where)
   if ('$schema' in manifest) {
     assert(manifest.$schema === PLUGIN_SCHEMA_URL, `Invalid ${where}.$schema: expected "${PLUGIN_SCHEMA_URL}"`)
   }
-  assert(manifest.kind === 'agentrig:plugin', `Invalid ${where}.kind: expected "agentrig:plugin"`)
-  assert(manifest.id === pluginId, `Invalid ${where}.id: expected "${pluginId}"`)
-  assert(manifest.version === version, `Invalid ${where}.version: expected "${version}"`)
   assertString(manifest.name, `${where}.name`)
-  assertString(manifest.description, `${where}.description`)
-  assertOptionalString(manifest.author, `${where}.author`)
+  assert(manifest.name === pluginId, `Invalid ${where}.name: expected "${pluginId}"`)
+  assertPattern(manifest.name, PLUGIN_ID_PATTERN, `${where}.name`)
+
+  if ('version' in manifest) {
+    assert(manifest.version === version, `Invalid ${where}.version: expected "${version}"`)
+    assertPattern(manifest.version, SEMVER_PATTERN, `${where}.version`)
+  }
+  if ('description' in manifest) assertString(manifest.description, `${where}.description`)
+  if ('author' in manifest) assertPlainObject(manifest.author, `${where}.author`)
   assertOptionalString(manifest.license, `${where}.license`)
-  assertPattern(manifest.id, PLUGIN_ID_PATTERN, `${where}.id`)
-  assertPattern(manifest.version, SEMVER_PATTERN, `${where}.version`)
 
   if ('keywords' in manifest) validateStringArray(manifest.keywords, `${where}.keywords`)
-
-  if ('pluginDependencies' in manifest) {
-    validateStringArray(manifest.pluginDependencies, `${where}.pluginDependencies`)
-    for (let index = 0; index < manifest.pluginDependencies.length; index += 1) {
-      assertPattern(manifest.pluginDependencies[index], PLUGIN_ID_PATTERN, `${where}.pluginDependencies[${index}]`)
-    }
-  }
-
-  assertPlainObject(manifest.configSchema, `${where}.configSchema`)
 
   if ('x-agentrig' in manifest) {
     assertPlainObject(manifest['x-agentrig'], `${where}.x-agentrig`)
@@ -508,13 +522,13 @@ function validateStandaloneManifest(manifest, layout, artifactId, version, where
     assert(manifest.$schema === STANDALONE_MANIFEST_SCHEMA_URLS[layout.kind], `Invalid ${where}.$schema: expected "${STANDALONE_MANIFEST_SCHEMA_URLS[layout.kind]}"`)
   }
   assert(manifest.kind === `agentrig:${layout.kind}`, `Invalid ${where}.kind: expected "agentrig:${layout.kind}"`)
-  assert(manifest.id === artifactId, `Invalid ${where}.id: expected "${artifactId}"`)
+  assert(manifest['id'] === artifactId, `Invalid ${where}.id: expected "${artifactId}"`)
   assert(manifest.version === version, `Invalid ${where}.version: expected "${version}"`)
   assertString(manifest.name, `${where}.name`)
   assertString(manifest.description, `${where}.description`)
   assertOptionalString(manifest.author, `${where}.author`)
   assertOptionalString(manifest.license, `${where}.license`)
-  assertPattern(manifest.id, PLUGIN_ID_PATTERN, `${where}.id`)
+  assertPattern(manifest['id'], PLUGIN_ID_PATTERN, `${where}.id`)
   assertPattern(manifest.version, SEMVER_PATTERN, `${where}.version`)
 
   if ('keywords' in manifest) validateStringArray(manifest.keywords, `${where}.keywords`)
@@ -577,7 +591,7 @@ function canonicalizeSourceArtifact(artifact, artifactMeta, expectedSnapshotDige
   return sortKeys(canonical)
 }
 
-function canonicalizeLockArtifact(artifact, artifactMeta, version, expectedFileDigests, expectedSnapshotDigest, where) {
+function canonicalizeLockArtifact(artifact, artifactMeta, version, expectedFileDigests, expectedSnapshotDigest, where, mode) {
   assertPlainObject(artifact, where)
   assertAdditionalProperties(
     artifact,
@@ -597,7 +611,7 @@ function canonicalizeLockArtifact(artifact, artifactMeta, version, expectedFileD
     assert(!('plugin' in artifact), `Invalid ${where}.plugin: standalone artifact locks must use artifact_id`)
   }
   assert(artifact.version === version, `Invalid ${where}.version: expected "${version}"`)
-  validateFileDigests(artifact.file_digests, `${where}.file_digests`)
+  validateFileDigests(artifact.file_digests, `${where}.file_digests`, { requireSize: mode !== 'write' })
   validateStringArray(artifact.capability_set, `${where}.capability_set`)
   validateStringArray(artifact.declared_network_domains, `${where}.declared_network_domains`)
   validateStringArray(artifact.declared_secrets, `${where}.declared_secrets`)
@@ -919,7 +933,7 @@ async function collectPluginMetadata(pluginRoot, advisoriesByPlugin, mode, enfor
 
         const lockPath = path.join(versionDir, 'AGENTRIG_LOCK.json')
         const lockArtifact = await readJson(lockPath)
-        const expectedLockArtifact = canonicalizeLockArtifact(lockArtifact, pluginIdentity, version, fileDigests, snapshotDigest, `${relativeVersionRoot}/AGENTRIG_LOCK.json`)
+        const expectedLockArtifact = canonicalizeLockArtifact(lockArtifact, pluginIdentity, version, fileDigests, snapshotDigest, `${relativeVersionRoot}/AGENTRIG_LOCK.json`, mode)
         await upsertJson(lockPath, expectedLockArtifact, mode)
 
         const reviewArtifact = await readJson(path.join(versionDir, 'AGENTRIG_REVIEW.json'))
@@ -1071,7 +1085,7 @@ async function collectStandaloneArtifactMetadata(repoRoot, layout, mode) {
 
         const lockPath = path.join(versionDir, 'AGENTRIG_LOCK.json')
         const lockArtifact = await readJson(lockPath)
-        const expectedLockArtifact = canonicalizeLockArtifact(lockArtifact, artifactIdentity, version, fileDigests, snapshotDigest, `${relativeVersionRoot}/AGENTRIG_LOCK.json`)
+        const expectedLockArtifact = canonicalizeLockArtifact(lockArtifact, artifactIdentity, version, fileDigests, snapshotDigest, `${relativeVersionRoot}/AGENTRIG_LOCK.json`, mode)
         await upsertJson(lockPath, expectedLockArtifact, mode)
 
         const reviewArtifact = await readJson(path.join(versionDir, 'AGENTRIG_REVIEW.json'))

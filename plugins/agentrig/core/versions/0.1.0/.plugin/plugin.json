@@ -1,24 +1,15 @@
 {
   "$schema": "https://agentrig.ai/schema/plugin.v1.json",
-  "kind": "agentrig:plugin",
-  "id": "agentrig.core",
-  "name": "Core",
-  "description": "Bundled AgentRig core skills (arig-*): architecture ownership, adapter extraction, lightweight review, duplicate-ownership audit, hard-cut policy, root-cause debugging, and consolidate test suites.",
+  "name": "agentrig.core",
   "version": "0.1.0",
-  "author": "agentrig",
-  "keywords": [
-    "architecture",
-    "ownership",
-    "review",
-    "refactoring",
-    "debugging",
-    "testing",
-    "core"
-  ],
-  "pluginDependencies": [],
-  "configSchema": {
-    "type": "object",
-    "additionalProperties": false,
-    "properties": {}
+  "description": "Bundled AgentRig core skills (arig-*): architecture ownership, adapter extraction, lightweight review, duplicate-ownership audit, hard-cut policy, root-cause debugging, and consolidate test suites.",
+  "author": { "name": "AgentRig" },
+  "license": "MIT",
+  "keywords": ["architecture", "ownership", "review", "refactoring", "debugging", "testing", "core"],
+  "x-agentrig": {
+    "displayName": "Core",
+    "kind": "plugin",
+    "configSchema": { "type": "object", "additionalProperties": false, "properties": {} },
+    "pluginDependencies": []
   }
 }
