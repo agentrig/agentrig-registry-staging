@@ -11,7 +11,7 @@
         "path": "plugins/agentrig/core/versions/0.1.0/",
         "published_at": "2026-05-02T12:00:00Z",
         "review": "plugins/agentrig/core/versions/0.1.0/AGENTRIG_REVIEW.json",
-        "snapshot_digest": "sha256:e8cf5075c1816a74209993303e6051c45725bddab1aabdcc2fd00da2c3a67271",
+        "snapshot_digest": "sha256:43b26ae7cc6e9f03efe6349b206e03f91e092501d61ff81c37317f2aa8cee2e8",
         "source": "plugins/agentrig/core/versions/0.1.0/AGENTRIG_SOURCE.json",
         "trust_tier": "official",
         "version": "0.1.0"
@@ -31,7 +31,7 @@
       ],
       "kind": "plugin",
       "latest_version": "0.1.0",
-      "name": "Core",
+      "name": "agentrig.core",
       "plugin": "agentrig.core",
       "trust_tier": "official"
     }
@@ -40,7 +40,7 @@
   "signature": {
     "algorithm": "sha256-json-envelope",
     "key_id": "agentrig-registry-staging",
-    "signed_digest": "sha256:94151ab4ffef7e80b7e1b208954b463949d0bc6f85a7aa8ad7942f380e1327f7",
+    "signed_digest": "sha256:89a246640ed63b7c233bdb3cb1cf72f81adf505999dafa93e661a0f84e32024f",
     "target": "registry.json"
   },
   "source_repository": "https://github.com/agentrig/agentrig-registry-staging"
